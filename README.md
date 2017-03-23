@@ -29,7 +29,7 @@ docker build -t name_you_want/for_your_docker_image ./Dockerfile
 ## Pull prebuilt image
 
 ```
-docker pull envoi/docker-rtlsdr-multimon
+docker pull envoi/rtlsdr-multimon
 ```
 
 # Running
@@ -37,7 +37,7 @@ docker pull envoi/docker-rtlsdr-multimon
 ## Show multimon-ng help and delete container
 
 ```
-docker run -it --rm --name docker-rtlsdr-multimon --device=/dev/bus/usb envoi/docker-rtlsdr-multimon multimon-ng -h
+docker run -it --rm --name rtlsdr-multimon --device=/dev/bus/usb envoi/rtlsdr-multimon multimon-ng -h
 ```
 
 ## A basic example
@@ -45,11 +45,11 @@ docker run -it --rm --name docker-rtlsdr-multimon --device=/dev/bus/usb envoi/do
 Launch container with bash console
 
 ```
-docker run -it --name docker-rtlsdr-multimon --device=/dev/bus/usb envoi/docker-rtlsdr-multimon /bin/bash
+docker run -it --name rtlsdr-multimon --device=/dev/bus/usb envoi/rtlsdr-multimon /bin/bash
 ## opt: remove container on exit
-### docker run --rm -it --name docker-rtlsdr-multimon --device=/dev/bus/usb envoi/docker-rtlsdr-multimon /bin/bash
+### docker run --rm -it --name rtlsdr-multimon --device=/dev/bus/usb envoi/rtlsdr-multimon /bin/bash
 ## opt: add -p host_port:80 or uncomment command show below to enable viewing of logs using lighttpd
-### docker run -it -p 8080:80 --name docker-rtlsdr-multimon --device=/dev/bus/usb envoi/docker-rtlsdr-multimon /bin/bash
+### docker run -it -p 8080:80 --name rtlsdr-multimon --device=/dev/bus/usb envoi/rtlsdr-multimon /bin/bash
 ```
 
 ### Once inside the container
