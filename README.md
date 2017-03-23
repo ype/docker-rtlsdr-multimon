@@ -26,21 +26,21 @@ cd docker-rtlsdr-multimon
 docker build -t name_you_want/for_your_docker_image ./Dockerfile
 ```
 
-### Pull prebuilt image
+## Pull prebuilt image
 
 ```
 docker pull envoi/docker-rtlsdr-multimon
 ```
 
-## Running
+# Running
 
-#### Show multimon-ng help and delete container
+## Show multimon-ng help and delete container
 
 ```
 docker run -it --rm --name docker-rtlsdr-multimon --device=/dev/bus/usb envoi/docker-rtlsdr-multimon multimon-ng -h
 ```
 
-#### A basic example
+## A basic example
 
 Launch container with bash console
 
@@ -52,11 +52,11 @@ docker run -it --name docker-rtlsdr-multimon --device=/dev/bus/usb envoi/docker-
 ### docker run -it -p 8080:80 --name docker-rtlsdr-multimon --device=/dev/bus/usb envoi/docker-rtlsdr-multimon /bin/bash
 ```
 
-##### Once inside the container
+### Once inside the container
 
 Here are some example commands you could run if you feel like it.
 
-###### Setting rtl_fm frequency to a variable
+#### Setting rtl_fm frequency to a variable
 
 ```
 FREQ="$(echo -e '153.35M')"
@@ -79,9 +79,9 @@ rtl_fm -f "$FREQ" -s 22050 2>/var/www/pager/"$DATETIMESTAMP"_rtl_fm-multimon_std
 		2>>/var/www/pager/"$DATETIMESTAMP"_rtl_fm-multimon_stderr.log &
 ```
 
-### VIEWING OUTPUT
+## VIEWING OUTPUT
 
-#### LOCAL: In Container
+### LOCAL: In Container
 
 From inside your container you can simply use the `tail` or `more` commands to view multimon's output
 
@@ -97,7 +97,7 @@ Or if you feel like paging through all the output generated thus far (*defn* pag
 more /var/www/pager/"$DATETIMESTAMP"_POCSAG-512_1200_2400-FLEX_"$FREQ".txt
 ```
 
-#### REMOTE: in Browser
+### REMOTE: in Browser
 view from browser using lighttpd to serve http://host_ip:8080/pager/"$DATETIMESTAMP"_POCSAG-512_1200_2400-FLEX_"$FREQ".txt *note: host_ip is the machine running docker*
 
 
@@ -107,7 +107,7 @@ view from browser using lighttpd to serve http://host_ip:8080/pager/"$DATETIMEST
 
 navigate to http://host_ip:8080/pager/"$DATETIMESTAMP"_POCSAG-512_1200_2400-FLEX_"$FREQ".txt in your browser of choice
 
-#### REMOTE: while loop of curl magicness
+### REMOTE: while loop of curl magicness
 
 do some curl magic and watch the data pour in remotely
 
