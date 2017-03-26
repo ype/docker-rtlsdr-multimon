@@ -28,6 +28,13 @@ RUN chmod 777 /var/www/pager/
 EXPOSE 8080
 
 VOLUME ["/var/www/pager"]
-WORKDIR /var/www/pager
 
-RUN /etc/init.d/lighttpd restart
+WORKDIR /var/www
+RUN git clone --depth 1 --progress https://github.com/derekeder/csv-to-html-table /var/www/csv-to-html-table
+COPY index.html /var/www
+
+WORKDIR /
+COPY run /run
+RUN chmod a+x /run
+
+ENTRYPOINT ["/run"]
