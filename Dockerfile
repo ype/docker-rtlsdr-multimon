@@ -33,8 +33,5 @@ WORKDIR /var/www
 RUN git clone --depth 1 --progress https://github.com/derekeder/csv-to-html-table /var/www/csv-to-html-table
 COPY index.html /var/www
 
-WORKDIR /
-COPY run /run
-RUN chmod a+x /run
-
-ENTRYPOINT ["/run"]
+COPY ./run.sh /
+ENTRYPOINT ["/run.sh"]
